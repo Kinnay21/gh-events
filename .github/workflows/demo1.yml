@@ -3,8 +3,22 @@ on:
 # activity event when pull request is opened, synchronized, or reopened
   pull_request:
     types: [opened, synchronize, reopened]
+    # we can also add filter inside a activity event
+    # ex : 
+    branches:
+      - main
+     
+
   # add another activity event : 
   workflow_dispatch:
+  # add filter to activity event:
+  push: 
+    branches:
+      - main
+      - 'dev-*' #allow any char after : ex dev-new
+      - 'feat/**' # allows more slash ex : feat/new/button
+    path-ignore:
+      - '.github/workflows/*' # will not trigger if only .github/workflows/* is changed
 jobs:
   deploy:
     runs-on: ubuntu-latest
