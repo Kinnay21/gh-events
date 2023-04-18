@@ -1,5 +1,10 @@
 name: Events Demo 1
-on: ...
+on: 
+# activity event when pull request is opened, synchronized, or reopened
+  pull_request:
+    types: [opened, synchronize, reopened]
+  # add another activity event : 
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
