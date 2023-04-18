@@ -35,3 +35,7 @@ jobs:
         run: npm run build
       - name: Deploy project
         run: echo "Deploying..."
+
+
+
+# if commit with [skip ci] in comment of commit, this will skip the worflow
